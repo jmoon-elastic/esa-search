@@ -1,6 +1,6 @@
 # ESA Search
 
-A lightweight web tool for searching Elastic Security Advisories (ESAs) by deployment version. Enter a target version (8.0.0 and above) and filter matching advisories by product, platform, and severity.
+A lightweight web tool for searching Elastic Stack Security Advisories (ESAs) by deployment version. Enter a target version (8.0.0 and above) and filter matching advisories by product, platform, and severity.
 
 Data is sourced from the official [Elastic Security Announcements](https://discuss.elastic.co/c/announcements/security-announcements/31) forum and stored locally in `esas.json`.
 
@@ -17,7 +17,8 @@ Data is sourced from the official [Elastic Security Announcements](https://discu
 | File | Description |
 |------|-------------|
 | `index.html` | Single-page search UI (HTML + Tailwind CSS + vanilla JS) |
-| `esas.json` | Crawled advisory database (8.x+ affected ranges) 
+| `esas.json` | Crawled advisory database (8.x+ affected ranges) |
+| `crawl_esas.py` | Python script to refresh `esas.json` from Discuss Elastic |
 
 ## Quick start
 
@@ -30,6 +31,17 @@ python3 -m http.server 8765
 
 Open [http://localhost:8765/index.html](http://localhost:8765/index.html), enter a version, and click **Search**.
 
+## Refreshing advisory data
+
+Re-crawl the forum and regenerate `esas.json`:
+
+```bash
+python3 crawl_esas.py
+```
+
+This fetches all ESA topics from the security announcements category, parses affected version ranges (8.0.0+), fixed versions, severity, and platforms, then writes the updated JSON. The crawl takes a few minutes.
+
+After updating, reload the page — filter options will reflect any new products, platforms, or severity levels automatically.
 
 ## JSON record format
 
@@ -41,18 +53,20 @@ Each entry in `esas.json` looks like:
   "title": "Improper Input Validation in Kibana Leading to Denial of Service",
   "url": "https://discuss.elastic.co/t/...",
   "affected_product": "Kibana",
-  "affected_range": ">=8.4.0 <=8.19.11",
+  "affected_ranges": [">=8.4.0 <=8.19.11", ">=9.0.0 <=9.2.5"],
   "fixed_version": "8.19.12, 9.2.6, 9.3.1",
   "severity": "Medium (6.5)",
   "platforms": ["Elastic Cloud"]
 }
 ```
 
-An advisory with multiple affected version ranges or products may appear as more than one row.
+An advisory with multiple affected version ranges or products may appear as more than one row. Multiple ranges for the same ESA and product are stored together in `affected_ranges`.
 
 ## Requirements
 
 - **Browser** — Any modern browser for the UI
+- **Python 3** — Standard library only (no pip packages) for `crawl_esas.py`
+- **Network access** — Required when running the crawler
 
 ## License
 
