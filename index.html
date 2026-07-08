@@ -20,7 +20,7 @@
         
         <header class="bg-slate-900 text-white p-6 rounded-xl shadow-md mb-6">
             <h1 class="text-2xl font-bold tracking-tight">Elastic Security Advisory (ESA) Matrix</h1>
-            <p class="text-slate-400 mt-1 text-sm">Enter a target version to scan for vulnerabilities across products and platforms (v8.0.0+).</p>
+            <p class="text-slate-400 mt-1 text-sm">Enter an Elastic Stack version to scan for vulnerabilities across stack products (v8.0.0+).</p>
         </header>
 
         <div class="flex flex-col md:flex-row gap-6">
@@ -29,7 +29,7 @@
                 <h2 class="text-base font-semibold text-slate-800 mb-4 border-b border-slate-100 pb-2">Matrix Filter Setup</h2>
                 
                 <div class="mb-5">
-                    <label for="versionInput" class="block text-xs font-bold uppercase text-slate-500 mb-2">Target Version</label>
+                    <label for="versionInput" class="block text-xs font-bold uppercase text-slate-500 mb-2">Elastic Stack Version</label>
                     <input
                         type="text"
                         id="versionInput"
@@ -48,28 +48,29 @@
 
                 <div class="mb-5">
                     <div class="flex items-center justify-between mb-2">
-                        <label class="text-xs font-bold uppercase text-slate-500">Product Types</label>
+                        <label class="text-xs font-bold uppercase text-slate-500">Elastic Stack</label>
                         <div class="text-xs">
-                            <button type="button" class="text-blue-600 hover:underline" data-filter-action="select-all" data-filter-group="productFilterGroup">All</button>
+                            <button type="button" class="text-blue-600 hover:underline" data-filter-action="select-all" data-filter-group="stackProductFilterGroup">All</button>
                             <span class="text-slate-300 mx-1">|</span>
-                            <button type="button" class="text-blue-600 hover:underline" data-filter-action="select-none" data-filter-group="productFilterGroup">None</button>
+                            <button type="button" class="text-blue-600 hover:underline" data-filter-action="select-none" data-filter-group="stackProductFilterGroup">None</button>
                         </div>
                     </div>
-                    <div class="space-y-2 text-sm text-slate-700" id="productFilterGroup">
+                    <div class="space-y-2 text-sm text-slate-700" id="stackProductFilterGroup">
                         <p class="text-xs text-slate-400 italic">Loading filters…</p>
                     </div>
                 </div>
 
                 <div class="mb-5">
                     <div class="flex items-center justify-between mb-2">
-                        <label class="text-xs font-bold uppercase text-slate-500">Platform Context</label>
+                        <label class="text-xs font-bold uppercase text-slate-500">Other Products</label>
                         <div class="text-xs">
-                            <button type="button" class="text-blue-600 hover:underline" data-filter-action="select-all" data-filter-group="platformFilterGroup">All</button>
+                            <button type="button" class="text-blue-600 hover:underline" data-filter-action="select-all" data-filter-group="independentProductFilterGroup">All</button>
                             <span class="text-slate-300 mx-1">|</span>
-                            <button type="button" class="text-blue-600 hover:underline" data-filter-action="select-none" data-filter-group="platformFilterGroup">None</button>
+                            <button type="button" class="text-blue-600 hover:underline" data-filter-action="select-none" data-filter-group="independentProductFilterGroup">None</button>
                         </div>
                     </div>
-                    <div class="space-y-2 text-sm text-slate-700" id="platformFilterGroup">
+                    <p class="text-xs text-slate-400 mb-2">Independent versioning — not matched by stack version.</p>
+                    <div class="space-y-2 text-sm text-slate-700" id="independentProductFilterGroup">
                         <p class="text-xs text-slate-400 italic">Loading filters…</p>
                     </div>
                 </div>
@@ -98,7 +99,7 @@
                     <svg class="w-12 h-12 mb-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
                     </svg>
-                    <p class="text-sm font-medium">Enter a target version and click Search</p>
+                    <p class="text-sm font-medium">Enter an Elastic Stack version and click Search</p>
                     <p class="text-xs mt-1">Results will appear here once a search is performed.</p>
                 </div>
                 <div id="resultsPanel" class="hidden overflow-x-auto">
@@ -117,7 +118,6 @@
                             <col style="width:32%">
                             <col style="width:9rem">
                             <col style="width:8rem">
-                            <col style="width:10rem">
                             <col style="width:5rem">
                             <col style="width:7rem">
                         </colgroup>
@@ -127,7 +127,6 @@
                                 <th class="px-4 py-3 font-semibold">Vulnerability Title</th>
                                 <th class="px-4 py-3 font-semibold">Affected Version(s)</th>
                                 <th class="px-4 py-3 font-semibold">Affected Product(s)</th>
-                                <th class="px-4 py-3 font-semibold">Affected Platform(s)</th>
                                 <th class="px-4 py-3 font-semibold">Fixed Version(s)</th>
                                 <th class="px-4 py-3 font-semibold rounded-tr-lg">Severity</th>
                             </tr>
@@ -145,8 +144,72 @@
         let rawEsaData = [];
         let currentResults = [];
 
-        const PLATFORM_ORDER = ["On-Prem", "Elastic Cloud", "ECE", "ECK"];
-        const SEVERITY_ORDER = ["Critical", "High", "Medium", "Low", "Unknown"];
+        const PRODUCT_ALIASES = {
+            "Elastic Defend": "Elastic Security",
+            "Elastic Endpoint": "Elastic Security",
+            "Synthetics Recorde": "Synthetics Recorder",
+        };
+
+        const STACK_PRODUCTS = new Set([
+            "Elasticsearch",
+            "Kibana",
+            "Logstash",
+            "Elastic Security",
+            "Elastic Agent",
+            "Fleet Server",
+            "APM Server",
+            "Beats",
+            "Filebeat",
+            "Metricbeat",
+            "Packetbeat",
+            "Enterprise Search",
+            "Elasticsearch-hadoop",
+            "Elastic Network Drive Connector",
+            "Elastic Sharepoint Online Python Connector",
+        ]);
+
+        const INDEPENDENT_PRODUCT_ORDER = [
+            "Elastic Cloud Enterprise",
+            "Elastic Cloud on Kubernetes",
+            "Elastic Package Registry",
+            "Elastic OTel",
+            "Synthetics Recorder",
+        ];
+
+        const STACK_PRODUCT_ORDER = [
+            "Elasticsearch",
+            "Kibana",
+            "Logstash",
+            "Elastic Security",
+            "Elastic Agent",
+            "Fleet Server",
+            "APM Server",
+            "Beats",
+            "Filebeat",
+            "Metricbeat",
+            "Packetbeat",
+            "Enterprise Search",
+            "Elasticsearch-hadoop",
+            "Elastic Network Drive Connector",
+            "Elastic Sharepoint Online Python Connector",
+        ];
+
+        const SEVERITY_ORDER = ["Critical", "High", "Medium", "Low"];
+
+        function normalizeProductName(product) {
+            return PRODUCT_ALIASES[product] || product;
+        }
+
+        function normalizeEsaProducts(data) {
+            return data.map(esa => ({
+                ...esa,
+                affected_product: normalizeProductName(esa.affected_product),
+            }));
+        }
+
+        function isStackProduct(product) {
+            return STACK_PRODUCTS.has(product);
+        }
 
         function uniqueSorted(values, preferredOrder = []) {
             const unique = [...new Set(values.filter(Boolean))];
@@ -161,9 +224,10 @@
         }
 
         function extractFilterOptions(data) {
+            const products = uniqueSorted(data.map(esa => esa.affected_product));
             return {
-                products: uniqueSorted(data.map(esa => esa.affected_product)),
-                platforms: uniqueSorted(data.flatMap(esa => esa.platforms || []), PLATFORM_ORDER),
+                stackProducts: uniqueSorted(products.filter(isStackProduct), STACK_PRODUCT_ORDER),
+                independentProducts: uniqueSorted(products.filter(p => !isStackProduct(p)), INDEPENDENT_PRODUCT_ORDER),
                 severities: uniqueSorted(data.map(esa => getSeverityFilterValue(esa.severity)), SEVERITY_ORDER),
             };
         }
@@ -181,16 +245,17 @@
             });
         }
 
-        function buildFilterGroup(containerId, values, labelRenderer) {
+        function buildFilterGroup(containerId, values, labelRenderer, defaultChecked = true) {
             const container = document.getElementById(containerId);
             if (!values.length) {
                 container.innerHTML = '<p class="text-xs text-slate-400 italic">None in dataset</p>';
                 return;
             }
 
+            const checkedAttr = defaultChecked ? "checked" : "";
             container.innerHTML = values.map(value => `
                 <label class="flex items-center space-x-2">
-                    <input type="checkbox" value="${escapeHtml(value)}" checked class="rounded border-slate-300 text-blue-600">
+                    <input type="checkbox" value="${escapeHtml(value)}" ${checkedAttr} class="rounded border-slate-300 text-blue-600">
                     ${labelRenderer(value)}
                 </label>
             `).join("");
@@ -198,8 +263,18 @@
 
         function initializeFilters(data) {
             const options = extractFilterOptions(data);
-            buildFilterGroup("productFilterGroup", options.products, value => `<span>${escapeHtml(value)}</span>`);
-            buildFilterGroup("platformFilterGroup", options.platforms, value => `<span>${escapeHtml(value)}</span>`);
+            buildFilterGroup(
+                "stackProductFilterGroup",
+                options.stackProducts,
+                value => `<span>${escapeHtml(value)}</span>`,
+                true
+            );
+            buildFilterGroup(
+                "independentProductFilterGroup",
+                options.independentProducts,
+                value => `<span>${escapeHtml(value)}</span>`,
+                false
+            );
             buildFilterGroup("severityFilterGroup", options.severities, renderSeverityFilterLabel);
         }
 
@@ -250,8 +325,8 @@
         }
 
         function getSeverityLevel(severity) {
-            const match = String(severity || "Unknown").match(/^([A-Za-z]+)/);
-            return (match ? match[1] : "Unknown").toLowerCase();
+            const match = String(severity || "").match(/^([A-Za-z]+)/);
+            return match ? match[1].toLowerCase() : "";
         }
 
         function getSeverityFilterValue(severity) {
@@ -260,7 +335,8 @@
             if (level === "high") return "High";
             if (level === "medium") return "Medium";
             if (level === "low") return "Low";
-            return "Unknown";
+            const match = String(severity || "").match(/^([A-Za-z]+)/);
+            return match ? match[1].charAt(0).toUpperCase() + match[1].slice(1).toLowerCase() : "";
         }
 
         function getSeverityScore(severity) {
@@ -280,18 +356,62 @@
             renderResultsTable(sorted);
         }
 
+        function getAffectedRanges(esa) {
+            if (Array.isArray(esa.affected_ranges) && esa.affected_ranges.length) {
+                return esa.affected_ranges;
+            }
+            if (esa.affected_range) {
+                return [esa.affected_range];
+            }
+            return [];
+        }
+
+        function mergeEsaEntries(data) {
+            const merged = new Map();
+
+            for (const esa of data) {
+                const key = `${esa.esa_id}|${esa.affected_product}`;
+                const ranges = getAffectedRanges(esa);
+
+                if (!merged.has(key)) {
+                    const entry = { ...esa, affected_ranges: [...ranges] };
+                    delete entry.affected_range;
+                    merged.set(key, entry);
+                    continue;
+                }
+
+                const existing = merged.get(key);
+                for (const range of ranges) {
+                    if (!existing.affected_ranges.includes(range)) {
+                        existing.affected_ranges.push(range);
+                    }
+                }
+            }
+
+            return Array.from(merged.values());
+        }
+
+        function versionMatchesEsa(version, esa) {
+            return getAffectedRanges(esa).some(range => versionSatisfies(version, range));
+        }
+
+        function renderAffectedRanges(esa) {
+            const ranges = getAffectedRanges(esa);
+            if (!ranges.length) {
+                return '<span class="text-slate-400">—</span>';
+            }
+
+            return `<div class="space-y-1">${ranges.map(range =>
+                `<div class="whitespace-nowrap">${escapeHtml(range)}</div>`
+            ).join("")}</div>`;
+        }
+
         function escapeHtml(text) {
             return String(text)
                 .replace(/&/g, "&amp;")
                 .replace(/</g, "&lt;")
                 .replace(/>/g, "&gt;")
                 .replace(/"/g, "&quot;");
-        }
-
-        function renderPlatformBadges(platforms) {
-            return platforms.map(p =>
-                `<span class="inline-block bg-slate-100 text-slate-800 text-xs px-2 py-0.5 rounded mr-1 mb-1">${escapeHtml(p)}</span>`
-            ).join("");
         }
 
         function renderFixedVersions(fixedVersion) {
@@ -327,16 +447,15 @@
 
             tbody.innerHTML = filteredData.map((esa, index) => {
                 const rowBg = index % 2 === 0 ? "bg-white" : "bg-slate-50";
-                const severity = escapeHtml(esa.severity || "Unknown");
+                const severity = escapeHtml(esa.severity || "—");
                 return `
                     <tr class="${rowBg} border-b border-slate-200 hover:bg-blue-50 transition-colors">
                         <td class="px-4 py-3 font-bold text-slate-900 whitespace-nowrap">${escapeHtml(esa.esa_id)}</td>
                         <td class="px-4 py-3 align-top min-w-0">
                             <a href="${escapeHtml(esa.url)}" target="_blank" class="text-blue-600 hover:underline font-medium break-words">${escapeHtml(esa.title)}</a>
                         </td>
-                        <td class="px-4 py-3 font-mono text-xs text-red-600 whitespace-nowrap align-top">${escapeHtml(esa.affected_range)}</td>
+                        <td class="px-4 py-3 font-mono text-xs text-red-600 align-top">${renderAffectedRanges(esa)}</td>
                         <td class="px-4 py-3 whitespace-nowrap align-top">${escapeHtml(esa.affected_product)}</td>
-                        <td class="px-4 py-3 align-top">${renderPlatformBadges(esa.platforms)}</td>
                         <td class="px-4 py-3 font-mono text-xs font-semibold text-green-600 leading-snug align-top">${renderFixedVersions(esa.fixed_version)}</td>
                         <td class="px-4 py-3 whitespace-nowrap">
                             <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded-full ${severityClass(esa.severity)}">${severity}</span>
@@ -369,37 +488,41 @@
             versionError.textContent = "";
 
             if (!selectedVersion) {
-                versionError.textContent = "Please enter a target version (e.g. 8.5.2).";
+                versionError.textContent = "Please enter an Elastic Stack version (e.g. 8.5.2).";
                 versionError.classList.remove("hidden");
                 showEmptyState();
                 return;
             }
 
             if (!isValidVersion(selectedVersion)) {
-                versionError.textContent = "Invalid version format. Use semver (e.g. 8.5.2).";
+                versionError.textContent = "Invalid version format. Use stack semver (e.g. 8.5.2).";
                 versionError.classList.remove("hidden");
                 showEmptyState("Invalid version");
                 return;
             }
 
-            const selectedProducts = Array.from(document.querySelectorAll("#productFilterGroup input:checked")).map(el => el.value);
-            const selectedPlatforms = Array.from(document.querySelectorAll("#platformFilterGroup input:checked")).map(el => el.value);
+            const selectedStackProducts = Array.from(document.querySelectorAll("#stackProductFilterGroup input:checked")).map(el => el.value);
+            const selectedIndependentProducts = Array.from(document.querySelectorAll("#independentProductFilterGroup input:checked")).map(el => el.value);
             const selectedSeverities = Array.from(document.querySelectorAll("#severityFilterGroup input:checked")).map(el => el.value);
 
-            const filteredData = rawEsaData.filter(esa => {
-                let versionMatch = false;
-                try {
-                    versionMatch = versionSatisfies(selectedVersion, esa.affected_range);
-                } catch (e) {
-                    console.error("Invalid range definition string format:", esa.affected_range);
+            const filteredData = mergeEsaEntries(rawEsaData.filter(esa => {
+                const product = esa.affected_product;
+                const severityMatch = selectedSeverities.includes(getSeverityFilterValue(esa.severity));
+                if (!severityMatch) return false;
+
+                if (isStackProduct(product)) {
+                    if (!selectedStackProducts.includes(product)) return false;
+                    try {
+                        return versionMatchesEsa(selectedVersion, esa);
+                    } catch (e) {
+                        console.error("Invalid range definition string format:", getAffectedRanges(esa).join(", "));
+                        return false;
+                    }
                 }
 
-                const productMatch = selectedProducts.includes(esa.affected_product);
-                const platformMatch = esa.platforms.some(p => selectedPlatforms.includes(p));
-                const severityMatch = selectedSeverities.includes(getSeverityFilterValue(esa.severity));
-
-                return versionMatch && productMatch && platformMatch && severityMatch;
-            });
+                if (!selectedIndependentProducts.includes(product)) return false;
+                return true;
+            }));
 
             showResults(filteredData);
 
@@ -416,8 +539,8 @@
                     return response.json();
                 })
                 .then(data => {
-                    rawEsaData = data;
-                    initializeFilters(data);
+                    rawEsaData = mergeEsaEntries(normalizeEsaProducts(data));
+                    initializeFilters(rawEsaData);
                 })
                 .catch(error => {
                     console.error("Error loading data file:", error);
