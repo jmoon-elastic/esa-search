@@ -103,13 +103,20 @@
                     <p class="text-xs mt-1">Results will appear here once a search is performed.</p>
                 </div>
                 <div id="resultsPanel" class="hidden overflow-x-auto">
-                    <div class="flex justify-end mb-3">
+                    <div class="flex justify-between items-center mb-3 min-w-[960px] w-full">
+                        <button
+                            id="sortIdBtn"
+                            type="button"
+                            class="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1.5 px-3 rounded-lg text-xs transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm"
+                        >
+                            Sort by ID
+                        </button>
                         <button
                             id="sortSeverityBtn"
                             type="button"
                             class="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1.5 px-3 rounded-lg text-xs transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm"
                         >
-                            Sort by Severity Score ↓
+                            Sort by Severity Score
                         </button>
                     </div>
                     <table class="w-full min-w-[960px] text-sm text-left border-collapse table-fixed">
@@ -143,6 +150,8 @@
     <script>
         let rawEsaData = [];
         let currentResults = [];
+        let activeSearchVersion = null;
+        let activeSort = { field: null, direction: "desc" };
 
         const PRODUCT_ALIASES = {
             "Elastic Defend": "Elastic Security",
@@ -163,12 +172,12 @@
             "Metricbeat",
             "Packetbeat",
             "Enterprise Search",
-            "Elasticsearch-hadoop",
-            "Elastic Network Drive Connector",
             "Elastic Sharepoint Online Python Connector",
         ]);
 
         const INDEPENDENT_PRODUCT_ORDER = [
+            "Elasticsearch-hadoop",
+            "Elastic Network Drive Connector",
             "Elastic Cloud Enterprise",
             "Elastic Cloud on Kubernetes",
             "Elastic Package Registry",
@@ -189,8 +198,6 @@
             "Metricbeat",
             "Packetbeat",
             "Enterprise Search",
-            "Elasticsearch-hadoop",
-            "Elastic Network Drive Connector",
             "Elastic Sharepoint Online Python Connector",
         ];
 
@@ -344,16 +351,60 @@
             return match ? parseFloat(match[1]) : -1;
         }
 
-        function sortResultsBySeverityDesc() {
+        function parseEsaId(esaId) {
+            const match = String(esaId).match(/ESA-(\d+)-(\d+)/i);
+            if (!match) return [0, 0];
+            return [parseInt(match[1], 10), parseInt(match[2], 10)];
+        }
+
+        function compareEsaIds(a, b, direction = "asc") {
+            const [aYear, aNum] = parseEsaId(a.esa_id);
+            const [bYear, bNum] = parseEsaId(b.esa_id);
+            const cmp = aYear !== bYear ? aYear - bYear : aNum - bNum;
+            return direction === "desc" ? -cmp : cmp;
+        }
+
+        function sortDirectionArrow(field) {
+            if (activeSort.field !== field) return "";
+            return activeSort.direction === "desc" ? " ↓" : " ↑";
+        }
+
+        function updateSortButtonLabels() {
+            document.getElementById("sortSeverityBtn").textContent =
+                `Sort by Severity Score${sortDirectionArrow("severity")}`;
+            document.getElementById("sortIdBtn").textContent =
+                `Sort by ID${sortDirectionArrow("id")}`;
+        }
+
+        function applyCurrentSort(data) {
+            if (!activeSort.field || !data.length) return data;
+
+            const sorted = [...data];
+            if (activeSort.field === "severity") {
+                sorted.sort((a, b) => {
+                    const scoreDiff = getSeverityScore(b.severity) - getSeverityScore(a.severity);
+                    const diff = activeSort.direction === "desc" ? scoreDiff : -scoreDiff;
+                    if (diff !== 0) return diff;
+                    return compareEsaIds(a, b, "asc");
+                });
+            } else if (activeSort.field === "id") {
+                sorted.sort((a, b) => compareEsaIds(a, b, activeSort.direction));
+            }
+            return sorted;
+        }
+
+        function toggleSort(field) {
             if (!currentResults.length) return;
 
-            const sorted = [...currentResults].sort((a, b) => {
-                const scoreDiff = getSeverityScore(b.severity) - getSeverityScore(a.severity);
-                if (scoreDiff !== 0) return scoreDiff;
-                return a.esa_id.localeCompare(b.esa_id);
-            });
+            if (activeSort.field === field) {
+                activeSort.direction = activeSort.direction === "desc" ? "asc" : "desc";
+            } else {
+                activeSort.field = field;
+                activeSort.direction = field === "severity" ? "desc" : "desc";
+            }
 
-            renderResultsTable(sorted);
+            updateSortButtonLabels();
+            renderResultsTable(applyCurrentSort(currentResults));
         }
 
         function getAffectedRanges(esa) {
@@ -455,7 +506,7 @@
                             <a href="${escapeHtml(esa.url)}" target="_blank" class="text-blue-600 hover:underline font-medium break-words">${escapeHtml(esa.title)}</a>
                         </td>
                         <td class="px-4 py-3 font-mono text-xs text-red-600 align-top">${renderAffectedRanges(esa)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap align-top">${escapeHtml(esa.affected_product)}</td>
+                        <td class="px-4 py-3 align-top min-w-0 break-words">${escapeHtml(esa.affected_product)}</td>
                         <td class="px-4 py-3 font-mono text-xs font-semibold text-green-600 leading-snug align-top">${renderFixedVersions(esa.fixed_version)}</td>
                         <td class="px-4 py-3 whitespace-nowrap">
                             <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded-full ${severityClass(esa.severity)}">${severity}</span>
@@ -467,6 +518,7 @@
 
         function showEmptyState(counterText = "No search performed") {
             currentResults = [];
+            activeSearchVersion = null;
             document.getElementById("emptyState").classList.remove("hidden");
             document.getElementById("resultsPanel").classList.add("hidden");
             document.getElementById("matchCounter").textContent = counterText;
@@ -476,10 +528,10 @@
             currentResults = filteredData;
             document.getElementById("emptyState").classList.add("hidden");
             document.getElementById("resultsPanel").classList.remove("hidden");
-            renderResultsTable(filteredData);
+            renderResultsTable(applyCurrentSort(filteredData));
         }
 
-        function processMatrixFilters() {
+        function runSearch() {
             const versionInput = document.getElementById("versionInput");
             const versionError = document.getElementById("versionError");
             const selectedVersion = versionInput.value.trim();
@@ -500,6 +552,8 @@
                 showEmptyState("Invalid version");
                 return;
             }
+
+            activeSearchVersion = selectedVersion;
 
             const selectedStackProducts = Array.from(document.querySelectorAll("#stackProductFilterGroup input:checked")).map(el => el.value);
             const selectedIndependentProducts = Array.from(document.querySelectorAll("#independentProductFilterGroup input:checked")).map(el => el.value);
@@ -530,6 +584,12 @@
             document.getElementById("matchCounter").textContent = `${filteredData.length} ${label} found for v${selectedVersion}`;
         }
 
+        function refreshResultsIfActive() {
+            if (activeSearchVersion) {
+                runSearch();
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
             showEmptyState();
 
@@ -547,10 +607,17 @@
                     document.getElementById("matchCounter").textContent = "Failed to load data";
                 });
 
-            document.getElementById("searchBtn").addEventListener("click", processMatrixFilters);
-            document.getElementById("sortSeverityBtn").addEventListener("click", sortResultsBySeverityDesc);
+            document.getElementById("searchBtn").addEventListener("click", runSearch);
+            document.getElementById("sortSeverityBtn").addEventListener("click", () => toggleSort("severity"));
+            document.getElementById("sortIdBtn").addEventListener("click", () => toggleSort("id"));
             document.getElementById("versionInput").addEventListener("keydown", (e) => {
-                if (e.key === "Enter") processMatrixFilters();
+                if (e.key === "Enter") runSearch();
+            });
+
+            document.getElementById("filterSidebar").addEventListener("change", (e) => {
+                if (e.target.matches('input[type="checkbox"]')) {
+                    refreshResultsIfActive();
+                }
             });
 
             document.getElementById("filterSidebar").addEventListener("click", (e) => {
@@ -560,6 +627,7 @@
                 const groupId = button.dataset.filterGroup;
                 const selectAll = button.dataset.filterAction === "select-all";
                 setFilterGroupChecked(groupId, selectAll);
+                refreshResultsIfActive();
             });
         });
     </script>
