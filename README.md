@@ -18,7 +18,7 @@ Data is sourced from the official [Elastic Security Announcements](https://discu
 |------|-------------|
 | `index.html` | Single-page search UI (HTML + Tailwind CSS + vanilla JS) |
 | `esas.json` | Crawled advisory database (8.x+ affected ranges) |
-| `crawl_esas.py` | Python script to refresh `esas.json` from Discuss Elastic |
+| ~~`crawl_esas.py`~~| ~~Python script to refresh `esas.json` from Discuss Elastic~~ | 
 
 ## Quick start
 
@@ -31,7 +31,7 @@ python3 -m http.server 8765
 
 Open [http://localhost:8765/index.html](http://localhost:8765/index.html), enter a version, and click **Search**.
 
-## Refreshing advisory data
+## Refreshing advisory data (Note: `crawl_esas.py` is not added to the project for now. Keeping the below description for future use only.)
 
 Re-crawl the forum and regenerate `esas.json`:
 
@@ -41,7 +41,7 @@ python3 crawl_esas.py
 
 This fetches all ESA topics from the security announcements category, parses affected version ranges (8.0.0+), fixed versions, severity, and platforms, then writes the updated JSON. The crawl takes a few minutes.
 
-After updating, reload the page — filter options will reflect any new products, platforms, or severity levels automatically.
+After updating, reload the page — filter options will reflect any new products, platforms, or severity levels automatically.~~
 
 ## JSON record format
 
@@ -55,8 +55,7 @@ Each entry in `esas.json` looks like:
   "affected_product": "Kibana",
   "affected_ranges": [">=8.4.0 <=8.19.11", ">=9.0.0 <=9.2.5"],
   "fixed_version": "8.19.12, 9.2.6, 9.3.1",
-  "severity": "Medium (6.5)",
-  "platforms": ["Elastic Cloud"]
+  "severity": "Medium (6.5)"
 }
 ```
 
