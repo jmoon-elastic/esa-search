@@ -3337,5 +3337,94 @@
       ">=9.1.0 <=9.4.5",
       ">=9.5.0 <=9.5.1"
     ]
+  },
+  {
+    "esa_id": "ESA-2026-178",
+    "title": "Incorrect Authorization in Kibana Leading to Unauthorized Configuration Modification",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-22-9-4-6-9-5-3-security-update-esa-2026-178/390164",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.21, 9.4.6, 9.5.3",
+    "severity": "High (8.1)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.20",
+      ">=9.0.0 <=9.4.5",
+      ">=9.5.0 <=9.5.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-175",
+    "title": "Incorrect Authorization in Kibana Leading to Information Disclosure",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-6-9-5-3-security-update-esa-2026-175/390163",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.6, 9.5.3",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=9.0.0 <=9.4.5",
+      ">=9.5.0 <=9.5.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-174",
+    "title": "Incorrect Authorization in Kibana Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-21-9-4-6-9-5-3-security-update-esa-2026-174/390162",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.21, 9.4.6, 9.5.3",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.20",
+      ">=9.0.0 <=9.4.5",
+      ">=9.5.0 <=9.5.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-154",
+    "title": "Missing Authorization in Kibana Leading to Unauthorized Cross-Space Write Operations",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-21-9-4-6-9-5-3-security-update-esa-2026-154/390161",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.21, 9.4.6, 9.5.3",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=8.18.3 <=8.19.20",
+      ">=9.0.3 <=9.4.5",
+      ">=9.5.0 <=9.5.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-153",
+    "title": "Missing Authorization in Kibana Fleet Plugin Leading to Cross-Space Agent Data Disclosure",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-6-9-5-3-security-update-esa-2026-153/390160",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.6, 9.5.3",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=9.1.0 <=9.4.5",
+      ">=9.5.0 <=9.5.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-151",
+    "title": "Improper Control of Generation of Code in Kibana Leading to Privilege Escalation",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-21-9-4-6-9-5-3-security-update-esa-2026-151/390159",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.21, 9.4.6, 9.5.3",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.20",
+      ">=9.0.0 <=9.4.5",
+      ">=9.5.0 <=9.5.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-140",
+    "title": "Incorrect Authorization in Kibana Leading to Privilege Escalation",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-21-9-4-6-9-5-3-security-update-esa-2026-140/390158",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.21, 9.4.6, 9.5.3",
+    "severity": "High (8.1)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.20",
+      ">=9.0.0 <=9.4.5",
+      ">=9.5.0 <=9.5.2"
+    ]
   }
 ]
