@@ -2906,5 +2906,436 @@
     "affected_ranges": [
       ">=8.0.0 <=8.0.0"
     ]
+  },
+  {
+    "esa_id": "ESA-2026-169",
+    "title": "Incorrect Authorization in Kibana Leading to Unauthorized Resource Consumption",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-21-9-4-6-9-5-2-security-update-esa-2026-169/390119",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.21, 9.4.6, 9.5.2",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.20",
+      ">=9.0.0 <=9.4.5",
+      ">=9.5.0 <=9.5.1"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-168",
+    "title": "Improper Neutralization of Special Elements in Data Query Logic in Kibana Leading to Information Disclosure",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-5-9-5-1-security-update-esa-2026-168/390082",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.5, 9.5.1",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=9.4.0 <=9.4.4",
+      ">=9.5.0 <=9.5.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-165",
+    "title": "Allocation of Resources Without Limits or Throttling (CWE-770) in Filebeat can lead to a denial of service via Excessive Allocation (CAPEC-130). An attacker able to reach the Filebeat HTTP ingestion e",
+    "url": "https://discuss.elastic.co/t/filebeat-8-19-18-9-3-1-security-update-esa-2026-165/390118",
+    "affected_product": "Filebeat",
+    "fixed_version": "8.19.18, 9.3.1",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.17",
+      ">=9.0.0 <=9.3.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-164",
+    "title": "Incorrect Authorization in Fleet Server Leading to Denial of Service of Agent Upload Operations",
+    "url": "https://discuss.elastic.co/t/fleet-server-8-19-16-9-3-5-9-4-2-security-update-esa-2026-164/390117",
+    "affected_product": "Fleet Server",
+    "fixed_version": "8.19.16, 9.3.5, 9.4.2",
+    "severity": "Low (3.1)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.15",
+      ">=9.0.0 <=9.3.4",
+      ">=9.4.0 <=9.4.1"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-163",
+    "title": "Allocation of Resources Without Limits or Throttling in Kibana Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-16-9-3-5-9-4-2-security-update-esa-2026-163/390116",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.16, 9.3.5, 9.4.2",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.15",
+      ">=9.0.0 <=9.3.4",
+      ">=9.4.0 <=9.4.1"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-161",
+    "title": "Observable Response Discrepancy in Kibana Leading to Cross-Space Information Disclosure",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-4-security-update-esa-2026-161/390115",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.4",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=9.4.0 <=9.4.3"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-160",
+    "title": "Improper Limitation of a Pathname to a Restricted Directory in Kibana Leading to Unauthorized Deletion of Privileged Resources",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-16-9-3-5-9-4-2-security-update-esa-2026-160/390077",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.16, 9.3.5, 9.4.2",
+    "severity": "High (7.3)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.15",
+      ">=9.0.0 <=9.3.4",
+      ">=9.4.0 <=9.4.1"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-159",
+    "title": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') in Kibana Leading to Unauthorized Resource Deletion",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-17-9-3-6-9-4-3-security-update-esa-2026-159/390114",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.17, 9.3.6, 9.4.3",
+    "severity": "Medium (6.3)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.16",
+      ">=9.0.0 <=9.3.5",
+      ">=9.4.0 <=9.4.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-158",
+    "title": "Improper Limitation of a Pathname to a Restricted Directory in Kibana Leading to Unauthorized Deletion of Privileged Resources",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-18-9-3-6-9-4-3-security-update-esa-2026-158/390113",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.18, 9.3.6, 9.4.3",
+    "severity": "High (7.3)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.17",
+      ">=9.0.0 <=9.3.5",
+      ">=9.4.0 <=9.4.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-157",
+    "title": "Stored Path Traversal in Kibana Leading to Unauthorized Deletion of Internal Resources",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-18-9-4-3-security-update-esa-2026-157/390112",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.18, 9.4.3",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.17",
+      ">=9.0.0 <=9.4.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-156",
+    "title": "Incorrect Authorization in Kibana Leading to Unauthorized Cross-Space Exposure of Machine Learning Job Data",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-19-9-3-8-9-4-4-security-update-esa-2026-156/390111",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.19, 9.3.8, 9.4.4",
+    "severity": "Medium (5.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.18",
+      ">=9.0.0 <=9.3.7",
+      ">=9.4.0 <=9.4.3"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-155",
+    "title": "Missing Authorization in Kibana Entity Store Leading to Unauthorized API Key Creation",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-21-9-4-6-security-update-esa-2026-155/390072",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.21, 9.4.6",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.20",
+      ">=9.0.3 <=9.4.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-152",
+    "title": "Improper Handling of Highly Compressed Data in APM Server Leading to Persistent Denial of Service",
+    "url": "https://discuss.elastic.co/t/apm-server-8-19-20-9-4-5-9-5-1-security-update-esa-2026-152/390110",
+    "affected_product": "APM Server",
+    "fixed_version": "8.19.20, 9.4.5, 9.5.1",
+    "severity": "Medium (4.9)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.19",
+      ">=9.0.0 <=9.4.4",
+      ">=9.5.0 <=9.5.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-150",
+    "title": "Incorrect Permission Assignment for Critical Resource in Elastic Agent Leading to Local Privilege Escalation to SYSTEM",
+    "url": "https://discuss.elastic.co/t/elastic-agent-8-19-21-9-4-6-9-5-2-security-update-esa-2026-150/390109",
+    "affected_product": "Elastic Agent",
+    "fixed_version": "8.19.21, 9.4.6, 9.5.2",
+    "severity": "High (7.8)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.20",
+      ">=9.0.0 <=9.4.5",
+      ">=9.5.0 <=9.5.1"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-149",
+    "title": "Missing Authorization in Kibana Leading to Unauthorized Disclosure of Fleet Deployment Metadata",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-6-9-5-1-security-update-esa-2026-149/390069",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.6, 9.5.1",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=9.0.0 <=9.4.5",
+      ">=9.5.0 <=9.5.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-148",
+    "title": "Improper Limitation of a Pathname to a Restricted Directory in Elastic Maps Server Leading to Unauthorized File Disclosure",
+    "url": "https://discuss.elastic.co/t/elastic-maps-server-8-19-19-9-4-4-9-5-1-security-update-esa-2026-148/390108",
+    "affected_product": "Elastic Maps Server",
+    "fixed_version": "8.19.19, 9.4.4, 9.5.1",
+    "severity": "Medium (5.3)",
+    "affected_ranges": [
+      ">=8.19.11 <=8.19.18",
+      ">=9.3.0 <=9.4.3",
+      ">=9.5.0 <=9.5.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-147",
+    "title": "Missing Authorization in Kibana Leading to Unauthorized Elasticsearch Index Data Exposure",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-5-security-update-esa-2026-147/390107",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.5",
+    "severity": "Medium (5.5)",
+    "affected_ranges": [
+      ">=9.4.0 <=9.4.4"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-144",
+    "title": "Missing Authorization in Kibana Leading to Information Disclosure",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-21-9-4-6-9-5-2-security-update-esa-2026-144/390064",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.21, 9.4.6, 9.5.2",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.20",
+      ">=9.0.0 <=9.4.5",
+      ">=9.5.0 <=9.5.1"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-143",
+    "title": "Missing Authorization in Elasticsearch Leading to Information Disclosure",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-19-9-3-8-9-4-4-9-5-1-security-update-esa-2026-143/390094",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.19, 9.3.8, 9.4.4, 9.5.1",
+    "severity": "Medium (5.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.18",
+      ">=9.0.0 <=9.3.7",
+      ">=9.4.0 <=9.4.3",
+      ">=9.5.0 <=9.5.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-142",
+    "title": "Incorrect Authorization in Kibana Leading to Unauthorized Disclosure, Modification, and Deletion of Data",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-21-9-4-6-9-5-2-security-update-esa-2026-142/390093",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.21, 9.4.6, 9.5.2",
+    "severity": "Medium (4.2)",
+    "affected_ranges": [
+      ">=8.19.11 <=8.19.20",
+      ">=9.3.0 <=9.4.5",
+      ">=9.5.0 <=9.5.1"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-141",
+    "title": "Inconsistent Interpretation of HTTP Requests ('HTTP Request Smuggling') in Elasticsearch Leading to Information Disclosure",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-141/390092",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.20, 9.4.5, 9.5.1",
+    "severity": "Medium (5.9)",
+    "affected_ranges": [
+      ">=8.18.0 <=8.19.19",
+      ">=9.0.0 <=9.4.4",
+      ">=9.5.0 <=9.5.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-135",
+    "title": "Execution with Unnecessary Privileges in Kibana Leading to Information Disclosure",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-21-9-4-6-9-5-2-security-update-esa-2026-135/390091",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.21, 9.4.6, 9.5.2",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.20",
+      ">=9.0.0 <=9.4.5",
+      ">=9.5.0 <=9.5.1"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-125",
+    "title": "Improper Handling of Highly Compressed Data in Kibana Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-21-9-4-6-9-5-2-security-update-esa-2026-125/390090",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.21, 9.4.6, 9.5.2",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.19.0 <=8.19.20",
+      ">=9.0.0 <=9.4.5",
+      ">=9.5.0 <=9.5.1"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-122",
+    "title": "Incorrect Authorization in Kibana Leading to Unauthorized Modification of Data",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-6-9-5-1-security-update-esa-2026-122/390089",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.6, 9.5.1",
+    "severity": "Medium (5.4)",
+    "affected_ranges": [
+      ">=9.4.0 <=9.4.5",
+      ">=9.5.0 <=9.5.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-115",
+    "title": "Uncaught Exception in Kibana Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-5-9-5-1-security-update-esa-2026-115/390088",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.5, 9.5.1",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=9.1.7 <=9.4.4",
+      ">=9.5.0 <=9.5.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-114",
+    "title": "Deserialization of Untrusted Data in Elasticsearch Leading to Remote Code Execution",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-4-5-9-5-1-security-update-esa-2026-114/390087",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.20, 9.4.5, 9.5.1",
+    "severity": "High (8.8)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.19",
+      ">=9.0.0 <=9.4.4",
+      ">=9.5.0 <=9.5.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-84",
+    "title": "Allocation of Resources Without Limits or Throttling in Kibana Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-6-security-update-esa-2026-84/390054",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.6",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=9.3.0 <=9.4.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-61",
+    "title": "Incorrect Authorization in Kibana Leading to Privilege Escalation",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-3-security-update-esa-2026-61/390086",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.3",
+    "severity": "High (8.3)",
+    "affected_ranges": [
+      ">=9.3.0 <=9.4.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-48",
+    "title": "Allocation of Resources Without Limits or Throttling in Kibana Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-19-9-3-5-security-update-esa-2026-48/390085",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.19, 9.3.5",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.18",
+      ">=9.0.0 <=9.3.4"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-47",
+    "title": "Allocation of Resources Without Limits or Throttling in Elasticsearch Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-20-9-3-0-security-update-esa-2026-47/390084",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.20, 9.3.0",
+    "severity": "Medium (4.9)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.19",
+      ">=9.0.0 <=9.2.8"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-31",
+    "title": "Allocation of Resources Without Limits or Throttling in Kibana Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-17-9-3-0-security-update-esa-2026-31/390050",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.17, 9.3.0",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.16",
+      ">=9.0.0 <=9.2.8"
+    ]
+  },
+  {
+    "esa_id": "ESA-2024-49",
+    "title": "Improper Link Resolution Before File Access ('Link Following') in Winlogbeat Leading to Arbitrary File Write and Denial of Service",
+    "url": "https://discuss.elastic.co/t/winlogbeat-8-13-0-security-update-esa-2024-49/390044",
+    "affected_product": "Winlogbeat",
+    "fixed_version": "8.13.0",
+    "severity": "High (7.2)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.12.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-146",
+    "title": "Incomplete Cleanup in Elastic Cloud on Kubernetes Leading to Unauthorized Cross-Namespace Credential Retention",
+    "url": "https://discuss.elastic.co/t/elastic-cloud-on-kubernetes-3-5-0-security-update-esa-2026-146/390106",
+    "affected_product": "Elastic Cloud on Kubernetes",
+    "fixed_version": "3.5.0",
+    "severity": "Low (3.5)",
+    "affected_ranges": [
+      ">=2.6.0 <=3.4.1"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-145",
+    "title": "Incorrect Authorization in Elastic Cloud on Kubernetes Leading to Unauthorized Modification of Data",
+    "url": "https://discuss.elastic.co/t/elastic-cloud-on-kubernetes-3-5-0-security-update-esa-2026-145/390105",
+    "affected_product": "Winlogbeat",
+    "fixed_version": "3.5.0",
+    "severity": "Medium (5.4)",
+    "affected_ranges": [
+      ">=2.6.0 <=3.4.1"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-130",
+    "title": "Incorrect Authorization in Kibana Leading to Unauthorized Disabling of Privilege Monitoring",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-6-9-5-2-security-update-esa-2026-130/390059",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.6, 9.5.2",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=9.1.0 <=9.4.5",
+      ">=9.5.0 <=9.5.1"
+    ]
   }
 ]
