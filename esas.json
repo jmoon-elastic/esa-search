@@ -3426,5 +3426,144 @@
       ">=9.0.0 <=9.4.5",
       ">=9.5.0 <=9.5.2"
     ]
+  },
+  {
+    "esa_id": "ESA-2026-184",
+    "title": "Uncontrolled Resource Consumption in Elasticsearch Leading to denial of service",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-3-security-update-esa-2026-184/390688",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.22, 9.4.7, 9.5.3",
+    "severity": "Medium (4.9)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.21",
+      ">=9.0.0 <=9.4.6",
+      ">=9.5.0 <=9.5.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-183",
+    "title": "Uncontrolled Resource Consumption in Elasticsearch Leading to denial of service",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-183/390687",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.22, 9.4.7, 9.5.4",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.21",
+      ">=9.0.0 <=9.4.6",
+      ">=9.5.0 <=9.5.3"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-182",
+    "title": "Uncontrolled Resource Consumption in Elasticsearch Leading to denial of service",
+    "url": "https://discuss.elastic.co/t/elasticsearch-9-4-7-9-5-4-security-update-esa-2026-182/390686",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "9.4.7, 9.5.4",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=9.2.0 <=9.4.6",
+      ">=9.5.0 <=9.5.3"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-181",
+    "title": "Uncontrolled Resource Consumption in Kibana Leading to denial of service",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-22-9-4-7-9-5-3-security-update-esa-2026-181/390685",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.22, 9.4.7, 9.5.3",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.21",
+      ">=9.0.0 <=9.4.6",
+      ">=9.5.0 <=9.5.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-180",
+    "title": "Uncontrolled Resource Consumption in Elasticsearch Leading to denial of service",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-180/390684",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.22, 9.4.7, 9.5.4",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.21",
+      ">=9.0.0 <=9.4.6",
+      ">=9.5.0 <=9.5.3"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-179",
+    "title": "Uncontrolled Resource Consumption in Elasticsearch Leading to denial of service",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-179/390683",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.22, 9.4.7, 9.5.4",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.12.0 <=8.19.21",
+      ">=9.0.0 <=9.4.6",
+      ">=9.5.0 <=9.5.3"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-176",
+    "title": "Uncontrolled Resource Consumption in Elasticsearch Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-22-9-4-7-9-5-4-security-update-esa-2026-176/390682",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.22, 9.4.7, 9.5.4",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.21",
+      ">=9.0.0 <=9.4.6",
+      ">=9.5.0 <=9.5.3"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-170",
+    "title": "Uncontrolled Resource Consumption in Elasticsearch Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-21-9-4-6-9-5-3-security-update-esa-2026-170/390681",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.21, 9.4.6, 9.5.3",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.20",
+      ">=9.0.0 <=9.4.5",
+      ">=9.5.0 <=9.5.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-139",
+    "title": "Missing Authorization in Kibana Leading to Unauthorized Deletion of Data",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-22-9-4-7-9-5-3-security-update-esa-2026-139/390680",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.22, 9.4.7, 9.5.3",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.21",
+      ">=9.0.0 <=9.4.6",
+      ">=9.5.0 <=9.5.2"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-103",
+    "title": "Authorization Bypass Through User-Controlled Key in Kibana Leading to Unauthorized Disclosure, Modification, and Deletion of Data",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-22-9-4-6-security-update-esa-2026-103/390679",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.22, 9.4.6",
+    "severity": "Medium (6.3)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.21",
+      ">=9.4.0 <=9.4.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-85",
+    "title": "Unintended Proxy or Intermediary ('Confused Deputy') in Kibana Leading to Privilege Escalation",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-7-9-5-0-security-update-esa-2026-85/390678",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.7, 9.5.0",
+    "severity": "High (7.3)",
+    "affected_ranges": [
+      ">=9.4.0 <=9.4.6"
+    ]
   }
 ]
