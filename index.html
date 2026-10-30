@@ -69,7 +69,7 @@
                             <button type="button" class="text-blue-600 hover:underline" data-filter-action="select-none" data-filter-group="independentProductFilterGroup">None</button>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-400 mb-2">Independent versioning — not matched by stack version.</p>
+                    <p class="text-xs text-slate-400 mb-2">Independent versioning — matched against the entered version, so enter that product's own version (e.g. ECE 4.1.0).</p>
                     <div class="space-y-2 text-sm text-slate-700" id="independentProductFilterGroup">
                         <p class="text-xs text-slate-400 italic">Loading filters…</p>
                     </div>
@@ -286,9 +286,9 @@
         }
 
         function parseVersion(version) {
-            const match = String(version).trim().match(/^(\d+)\.(\d+)\.(\d+)/);
+            const match = String(version).trim().match(/^(\d+)\.(\d+)(?:\.(\d+))?/);
             if (!match) return null;
-            return [parseInt(match[1], 10), parseInt(match[2], 10), parseInt(match[3], 10)];
+            return [parseInt(match[1], 10), parseInt(match[2], 10), parseInt(match[3] || "0", 10)];
         }
 
         function compareVersions(a, b) {
@@ -306,7 +306,7 @@
             const ver = parseVersion(version);
             if (!ver) return false;
 
-            const clauses = range.trim().match(/(>=|<=|>|<|==|=)\d+\.\d+\.\d+/g) || [];
+            const clauses = range.trim().match(/(>=|<=|>|<|==|=)\d+\.\d+(?:\.\d+)?/g) || [];
             for (const clause of clauses) {
                 const op = clause.match(/^(>=|<=|>|<|==|=)/)[1];
                 const bound = parseVersion(clause.slice(op.length));
@@ -575,7 +575,12 @@
                 }
 
                 if (!selectedIndependentProducts.includes(product)) return false;
-                return true;
+                try {
+                    return versionMatchesEsa(selectedVersion, esa);
+                } catch (e) {
+                    console.error("Invalid range definition string format:", getAffectedRanges(esa).join(", "));
+                    return false;
+                }
             }));
 
             showResults(filteredData);
