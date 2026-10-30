@@ -3765,5 +3765,88 @@
       ">=9.0.0 <=9.4.7",
       ">=9.5.0 <=9.5.4"
     ]
+  },
+  {
+    "esa_id": "ESA-2026-211",
+    "title": "Authorization Bypass Through User-Controlled Key in Elastic Cloud Enterprise (ECE) Leading to Privilege Escalation",
+    "url": "https://discuss.elastic.co/t/elastic-cloud-enterprise-ece-3-8-6-and-4-2-1-security-update-esa-2026-211/391260",
+    "affected_product": "Elastic Cloud Enterprise",
+    "fixed_version": "3.8.6, 4.2.1",
+    "severity": "Medium (6.8)",
+    "affected_ranges": [
+      ">=1.0.0 <=3.8.5",
+      ">=4.0.0 <=4.2.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-212",
+    "title": "Insertion of Sensitive Information into Externally-Accessible File or Directory in Elastic Cloud Enterprise (ECE) Leading to Privilege Escalation",
+    "url": "https://discuss.elastic.co/t/elastic-cloud-enterprise-ece-3-8-6-and-4-2-1-security-update-esa-2026-212/391261",
+    "affected_product": "Elastic Cloud Enterprise",
+    "fixed_version": "3.8.6, 4.2.1",
+    "severity": "Medium (6.4)",
+    "affected_ranges": [
+      ">=2.6.0 <=3.8.5",
+      ">=4.0.0 <=4.2.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-215",
+    "title": "Improper Link Resolution Before File Access ('Link Following') in Elastic Cloud Enterprise (ECE) Leading to Authentication Bypass",
+    "url": "https://discuss.elastic.co/t/elastic-cloud-enterprise-ece-3-8-6-and-4-2-1-security-update-esa-2026-215/391262",
+    "affected_product": "Elastic Cloud Enterprise",
+    "fixed_version": "3.8.6, 4.2.1",
+    "severity": "High (7.2)",
+    "affected_ranges": [
+      ">=1.0.0 <=3.8.5",
+      ">=4.0.0 <=4.2.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-216",
+    "title": "Improper Link Resolution Before File Access ('Link Following') in Elastic Cloud Enterprise (ECE) Leading to Information Disclosure and Data Loss",
+    "url": "https://discuss.elastic.co/t/elastic-cloud-enterprise-ece-3-8-6-and-4-2-1-security-update-esa-2026-216/391263",
+    "affected_product": "Elastic Cloud Enterprise",
+    "fixed_version": "3.8.6, 4.2.1",
+    "severity": "High (8.2)",
+    "affected_ranges": [
+      ">=2.6.0 <=3.8.5",
+      ">=4.0.0 <=4.2.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-218",
+    "title": "Insertion of Sensitive Information into Externally-Accessible File or Directory in Elastic Cloud Enterprise (ECE) Leading to Credential Disclosure",
+    "url": "https://discuss.elastic.co/t/elastic-cloud-enterprise-ece-3-8-6-and-4-2-1-security-update-esa-2026-218/391264",
+    "affected_product": "Elastic Cloud Enterprise",
+    "fixed_version": "3.8.6, 4.2.1",
+    "severity": "Medium (6.4)",
+    "affected_ranges": [
+      ">=1.0.0 <=3.8.5",
+      ">=4.0.0 <=4.2.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-221",
+    "title": "Incorrect Authorization in Elastic Cloud Enterprise (ECE) Leading to Unauthorized Modification of Platform Settings",
+    "url": "https://discuss.elastic.co/t/elastic-cloud-enterprise-ece-3-8-6-and-4-2-1-security-update-esa-2026-221/391265",
+    "affected_product": "Elastic Cloud Enterprise",
+    "fixed_version": "3.8.6, 4.2.1",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=3.8.0 <=3.8.5",
+      ">=4.0.0 <=4.2.0"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-222",
+    "title": "Improper Link Resolution Before File Access ('Link Following') in Elastic Cloud Enterprise (ECE) Leading to Information Disclosure and Data Modification",
+    "url": "https://discuss.elastic.co/t/elastic-cloud-enterprise-ece-4-2-1-security-update-esa-2026-222/391266",
+    "affected_product": "Elastic Cloud Enterprise",
+    "fixed_version": "4.2.1",
+    "severity": "High (7.5)",
+    "affected_ranges": [
+      ">=4.1.0 <=4.2.0"
+    ]
   }
 ]
