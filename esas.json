@@ -3848,5 +3848,368 @@
     "affected_ranges": [
       ">=4.1.0 <=4.2.0"
     ]
-  }
+  },
+  {
+    "esa_id": "ESA-2026-238",
+    "title": "Out-of-bounds Write in Elastic Maps Server Leading to Remote Code Execution",
+    "url": "https://discuss.elastic.co/t/elastic-maps-server-8-19-24-9-4-9-9-5-6-security-update-esa-2026-238/391375",
+    "affected_product": "Elastic Maps Server",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (8.1)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-237",
+    "title": "Improper Certificate Validation in Elastic Docker Images Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/multiple-elastic-docker-images-8-19-24-9-4-9-9-5-6-security-update-esa-2026-237/391374",
+    "affected_product": "APM Server",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-237",
+    "title": "Improper Certificate Validation in Elastic Docker Images Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/multiple-elastic-docker-images-8-19-24-9-4-9-9-5-6-security-update-esa-2026-237/391374",
+    "affected_product": "Elastic Agent",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-237",
+    "title": "Improper Certificate Validation in Elastic Docker Images Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/multiple-elastic-docker-images-8-19-24-9-4-9-9-5-6-security-update-esa-2026-237/391374",
+    "affected_product": "Filebeat",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-237",
+    "title": "Improper Certificate Validation in Elastic Docker Images Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/multiple-elastic-docker-images-8-19-24-9-4-9-9-5-6-security-update-esa-2026-237/391374",
+    "affected_product": "Fleet Server",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-237",
+    "title": "Improper Certificate Validation in Elastic Docker Images Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/multiple-elastic-docker-images-8-19-24-9-4-9-9-5-6-security-update-esa-2026-237/391374",
+    "affected_product": "Logstash",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-237",
+    "title": "Improper Certificate Validation in Elastic Docker Images Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/multiple-elastic-docker-images-8-19-24-9-4-9-9-5-6-security-update-esa-2026-237/391374",
+    "affected_product": "Metricbeat",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-237",
+    "title": "Improper Certificate Validation in Elastic Docker Images Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/multiple-elastic-docker-images-8-19-24-9-4-9-9-5-6-security-update-esa-2026-237/391374",
+    "affected_product": "Packetbeat",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-237",
+    "title": "Improper Certificate Validation in Elastic Docker Images Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/multiple-elastic-docker-images-8-19-24-9-4-9-9-5-6-security-update-esa-2026-237/391374",
+    "affected_product": "Elastic Maps Server",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },  
+  {
+    "esa_id": "ESA-2026-236",
+    "title": "Allocation of Resources Without Limits or Throttling in APM Server Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/apm-server-8-19-24-9-4-9-9-5-6-security-update-esa-2026-236/391373",
+    "affected_product": "APM Server",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.3.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-235",
+    "title": "Allocation of Resources Without Limits or Throttling in Elasticsearch Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-24-9-4-9-9-5-6-security-update-esa-2026-235/391372",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-234",
+    "title": "Out-of-bounds Write in Elastic Agent Leading to Remote Code Execution",
+    "url": "https://discuss.elastic.co/t/elastic-agent-8-19-24-9-4-9-9-5-6-security-update-esa-2026-234/391371",
+    "affected_product": "Elastic Agent",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (8.1)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-233",
+    "title": "Out-of-bounds Write in Heartbeat Leading to Remote Code Execution",
+    "url": "https://discuss.elastic.co/t/heartbeat-8-19-24-9-4-9-9-5-6-security-update-esa-2026-233/391370",
+    "affected_product": "Heartbeat",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (8.1)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-232",
+    "title": "Out-of-bounds Write in Kibana Leading to Remote Code Execution",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-24-9-4-9-9-5-6-security-update-esa-2026-232/391369",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (8.1)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-231",
+    "title": "Improper Certificate Validation in Elastic Agent Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/elastic-agent-complete-flavor-synthetics-8-19-24-9-4-9-9-5-6-security-update-esa-2026-231/391368",
+    "affected_product": "Elastic Agent",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-230",
+    "title": "Improper Certificate Validation in Heartbeat Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/heartbeat-8-19-24-9-4-9-9-5-6-security-update-esa-2026-230/391367",
+    "affected_product": "Heartbeat",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-229",
+    "title": "Improper Certificate Validation in Kibana Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-24-9-4-9-9-5-6-security-update-esa-2026-229/391366",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-228",
+    "title": "Improper Certificate Validation in Logstash Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/logstash-8-19-24-9-4-9-9-5-6-security-update-esa-2026-228/391365",
+    "affected_product": "Logstash",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.12.1 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-227",
+    "title": "Improper Certificate Validation in Elasticsearch Leading to Interception of TLS Connections",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-24-9-4-9-9-5-6-security-update-esa-2026-227/391364",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.4)",
+    "affected_ranges": [
+      ">=8.12.1 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-210",
+    "title": "Use of Cache Containing Sensitive Information in Elasticsearch Leading to Information Disclosure",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-24-9-4-9-9-5-6-security-update-esa-2026-210/391363",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "Medium (4.2)",
+    "affected_ranges": [
+      ">=8.9.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-209",
+    "title": "Incorrect Authorization in Elasticsearch Leading to Information Disclosure",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-24-9-4-9-9-5-6-security-update-esa-2026-209/391362",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-208",
+    "title": "NULL Pointer Dereference in Packetbeat Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/packetbeat-8-19-24-9-4-9-9-5-6-security-update-esa-2026-208/391361",
+    "affected_product": "Packetbeat",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-206",
+    "title": "Authorization Bypass Through User-Controlled Key in Kibana Leading to Information Disclosure",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-24-9-4-9-9-5-6-security-update-esa-2026-206/391360",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=8.7.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-205",
+    "title": "Improper Limitation of a Pathname to a Restricted Directory in Kibana Leading to Unauthorized Resource Deletion",
+    "url": "https://discuss.elastic.co/t/kibana-9-4-9-9-5-6-security-update-esa-2026-205/391359",
+    "affected_product": "Kibana",
+    "fixed_version": "9.4.9, 9.5.6",
+    "severity": "High (7.3)",
+    "affected_ranges": [
+      ">=9.3.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-204",
+    "title": "Insertion of Sensitive Information Into Sent Data in Kibana Leading to Credential Disclosure",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-24-9-4-9-9-5-6-security-update-esa-2026-204/391358",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "Medium (6.5)",
+    "affected_ranges": [
+      ">=8.10.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-203",
+    "title": "Authorization Bypass Through User-Controlled Key in Kibana Leading to Information Disclosure",
+    "url": "https://discuss.elastic.co/t/kibana-8-19-24-9-4-9-9-5-6-security-update-esa-2026-203/391357",
+    "affected_product": "Kibana",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-201",
+    "title": "Uncontrolled Recursion in Elasticsearch Leading to Denial of Service",
+    "url": "https://discuss.elastic.co/t/elasticsearch-8-19-24-9-4-9-9-5-6-security-update-esa-2026-201/391356",
+    "affected_product": "Elasticsearch",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "High (7.5)",
+    "affected_ranges": [
+      ">=8.10.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  },
+  {
+    "esa_id": "ESA-2026-200",
+    "title": "Use of Multiple Resources with Duplicate Identifier in APM Server Leading to Information Disclosure",
+    "url": "https://discuss.elastic.co/t/apm-server-8-19-24-9-4-9-9-5-6-security-update-esa-2026-200/391355",
+    "affected_product": "APM Server",
+    "fixed_version": "8.19.24, 9.4.9, 9.5.6",
+    "severity": "Medium (4.3)",
+    "affected_ranges": [
+      ">=8.0.0 <=8.19.23",
+      ">=9.0.0 <=9.4.8",
+      ">=9.5.0 <=9.5.5"
+    ]
+  }  
 ]
