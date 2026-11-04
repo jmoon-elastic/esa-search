@@ -417,29 +417,46 @@
             return [];
         }
 
-        function mergeEsaEntries(data) {
-            const merged = new Map();
-
-            for (const esa of data) {
-                const key = `${esa.esa_id}|${esa.affected_product}`;
+        function groupAdvisoriesById(entries) {
+            const grouped = new Map();
+            for (const esa of entries) {
+                let group = grouped.get(esa.esa_id);
+                if (!group) {
+                    group = {
+                        esa_id: esa.esa_id,
+                        title: esa.title,
+                        url: esa.url,
+                        severity: esa.severity,
+                        products: [],
+                    };
+                    grouped.set(esa.esa_id, group);
+                } else if (getSeverityScore(esa.severity) > getSeverityScore(group.severity)) {
+                    group.severity = esa.severity;
+                }
                 const ranges = getAffectedRanges(esa);
-
-                if (!merged.has(key)) {
-                    const entry = { ...esa, affected_ranges: [...ranges] };
-                    delete entry.affected_range;
-                    merged.set(key, entry);
+                const existing = group.products.find(product => product.name === esa.affected_product);
+                if (existing) {
+                    for (const range of ranges) {
+                        if (!existing.affected_ranges.includes(range)) existing.affected_ranges.push(range);
+                    }
                     continue;
                 }
-
-                const existing = merged.get(key);
-                for (const range of ranges) {
-                    if (!existing.affected_ranges.includes(range)) {
-                        existing.affected_ranges.push(range);
-                    }
-                }
+                group.products.push({
+                    name: esa.affected_product,
+                    affected_ranges: [...ranges],
+                    fixed_version: esa.fixed_version,
+                });
             }
-
-            return Array.from(merged.values());
+            return Array.from(grouped.values()).map(group => {
+                const rangeKeys = group.products.map(product => product.affected_ranges.join("\n"));
+                const fixedKeys = group.products.map(product => String(product.fixed_version || ""));
+                group.uniform_ranges = rangeKeys.every(key => key === rangeKeys[0]);
+                group.uniform_fixed = fixedKeys.every(key => key === fixedKeys[0]);
+                group.affected_ranges = group.uniform_ranges && group.products.length ? [...group.products[0].affected_ranges] : [];
+                group.fixed_version = group.uniform_fixed && group.products.length ? group.products[0].fixed_version : "";
+                group.affected_product = group.products.map(product => product.name).join(", ");
+                return group;
+            });
         }
 
         function versionMatchesEsa(version, esa) {
@@ -559,7 +576,7 @@
             const selectedIndependentProducts = Array.from(document.querySelectorAll("#independentProductFilterGroup input:checked")).map(el => el.value);
             const selectedSeverities = Array.from(document.querySelectorAll("#severityFilterGroup input:checked")).map(el => el.value);
 
-            const filteredData = mergeEsaEntries(rawEsaData.filter(esa => {
+            const filteredData = groupAdvisoriesById(rawEsaData.filter(esa => {
                 const product = esa.affected_product;
                 const severityMatch = selectedSeverities.includes(getSeverityFilterValue(esa.severity));
                 if (!severityMatch) return false;
@@ -604,7 +621,7 @@
                     return response.json();
                 })
                 .then(data => {
-                    rawEsaData = mergeEsaEntries(normalizeEsaProducts(data));
+                    rawEsaData = normalizeEsaProducts(data);
                     initializeFilters(rawEsaData);
                 })
                 .catch(error => {
